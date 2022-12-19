@@ -1,7 +1,9 @@
+import React from 'react';
 import Head from 'next/head'
 import { Button } from '@nextui-org/react'
+import ThemeToggle from '../components/ThemeToggle'
 
-export default function Home() {
+const Home: React.FC = () => {
   return (
     <>
       <Head>
@@ -10,8 +12,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <ThemeToggle />
         <Button color={'gradient'} animated auto shadow rounded>Click me</Button>
       </main>
     </>
   )
 }
+
+export default Home
