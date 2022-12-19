@@ -1,19 +1,20 @@
 import React from 'react';
 import { useTheme as useNextTheme } from 'next-themes'
 import { Switch, useTheme } from '@nextui-org/react'
+import { MdLightMode, MdDarkMode } from 'react-icons/md'
 
 const ThemeToggle: React.FC = () => {
   const { setTheme } = useNextTheme()
-  const { isDark, type } = useTheme()
+  const { isDark } = useTheme()
 
   return (
-    <div>
-      The current theme is: {type}
-      <Switch
-        checked={isDark}
-        onChange={(e) => setTheme(e.target.checked ? 'dark' : 'light')}
-      />
-    </div>
+    <Switch
+      checked={isDark}
+      shadow={isDark}
+      iconOff={<MdLightMode />}
+      iconOn={<MdDarkMode />}
+      onChange={(e) => setTheme(e.target.checked ? 'dark' : 'light')}
+    />
   )
 }
 
