@@ -1,15 +1,15 @@
 import React from 'react';
 import Head from 'next/head'
-import { Button, Card, Container, Input, Link, Spacer, Text, useTheme } from '@nextui-org/react';
-import { RiMailLine, RiLockPasswordLine } from 'react-icons/ri'
+import { Button, Card, Checkbox, Container, Input, Link, Spacer, Text, useTheme } from '@nextui-org/react';
+import { RiMailLine, RiLockPasswordLine, RiUserLine } from 'react-icons/ri'
 
-const LogIn: React.FC = () => {
+const Register: React.FC = () => {
   const { isDark } = useTheme()
 
   return (
     <>
       <Head>
-        <title>Anmelden | Edux</title>
+        <title>Registrieren | Edux</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -26,9 +26,23 @@ const LogIn: React.FC = () => {
               size={'$2xl'}
               b
             >
-              Anmelden
+              Registrieren
             </Text>
             <Card.Divider />
+            <Spacer />
+            <Input
+              fullWidth
+              bordered={isDark}
+              placeholder='Vorname'
+              contentLeft={<RiUserLine />}
+            />
+            <Spacer />
+            <Input
+              fullWidth
+              bordered={isDark}
+              placeholder='Nachname'
+              contentLeft={<RiUserLine />}
+            />
             <Spacer />
             <Input
               fullWidth
@@ -43,12 +57,21 @@ const LogIn: React.FC = () => {
               contentLeft={<RiLockPasswordLine />}
             />
             <Spacer />
-            <Button shadow={isDark}>Anmelden</Button>
+            <Input.Password
+              bordered={isDark}
+              placeholder='Passwort wiederholen'
+              contentLeft={<RiLockPasswordLine />}
+            />
+            <Spacer />
+            <Checkbox size={'md'}>
+              <Text>Ich stimme den <a>Nutzungsbedingugen</a> zu.</Text>
+            </Checkbox>
+            <Spacer />
+            <Button shadow={isDark}>Registrieren</Button>
             <Spacer />
             <Card.Divider />
             <Spacer />
-            <Link css={{ as: 'center', m: '5px' }}>Passwort vergessen?</Link>
-            <Link href='/register' css={{ as: 'center', m: '5px' }}>Registrieren</Link>
+            <Link href='/login' css={{ as: 'center', m: '5px' }}>Anmelden</Link>
           </Card>
         </Container>
       </main>
@@ -56,4 +79,4 @@ const LogIn: React.FC = () => {
   )
 }
 
-export default LogIn
+export default Register

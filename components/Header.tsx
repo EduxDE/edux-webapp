@@ -15,7 +15,7 @@ const Header: React.FC = () => {
       <Navbar.Content variant={'highlight'}>
         <Navbar.Link href='#' isActive>Home</Navbar.Link>
         <Navbar.Link href='/login'>Login</Navbar.Link>
-        <Navbar.Link href='#'>Ipsum</Navbar.Link>
+        <Navbar.Link href='/register'>Registrieren</Navbar.Link>
       </Navbar.Content>
       <Navbar.Content>
         <ThemeToggle />
